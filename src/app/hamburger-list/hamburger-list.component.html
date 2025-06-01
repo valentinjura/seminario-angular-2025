@@ -1,0 +1,63 @@
+<h1 class="text-center mb-4">Lista de Hamburguesas</h1>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped text-center align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Compra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hamburger of hamburgers" [ngClass]="{'clearance': hamburger.clearance}">
+        <td><img [src]="hamburger.image" [alt]="hamburger.name" width="80" class="img-fluid" /></td>
+        <td>{{ hamburger.name }}</td>
+        <td>{{ hamburger.type }}</td>
+
+        <td>
+          <span *ngIf="hamburger.clearance; else normalPrice">
+            <div>
+              <span class="text-decoration-line-through text-muted">
+                {{ hamburger.price | currency }}
+              </span>
+            </div>
+            <div>
+              <small class="fw-bold text-success">
+                {{ (hamburger.price * 0.85) | currency }}
+              </small>
+            </div>
+          </span>
+          <ng-template #normalPrice>
+            {{ hamburger.price | currency }}
+          </ng-template>
+        </td>
+
+        <td>
+          <span *ngIf="hamburger.stock === 0" class="badge bg-danger">SIN STOCK</span>
+          <span *ngIf="hamburger.stock > 0">{{ hamburger.stock }}</span>
+        </td>
+
+        <td>
+          <div class="d-flex justify-content-center align-items-center">
+            <button class="btn btn-sm btn-primary me-2" (click)="upQuantity(hamburger)">+</button>
+
+            <input 
+              type="number"
+              [(ngModel)]="hamburger.quantity"
+              (input)="changeQuantity(hamburger)"
+              [max]="hamburger.stock"
+              [min]="0"
+              class="form-control form-control-sm text-center"
+              style="width: 70px;">
+
+            <button class="btn btn-sm btn-secondary ms-2" (click)="downQuantity(hamburger)">-</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

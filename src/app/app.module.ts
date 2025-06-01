@@ -3,17 +3,27 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HamburgerListComponent } from './hamburger-list/hamburger-list.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
+import { FormsModule } from '@angular/forms';
+import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
+import { BreweryHamburgersComponent } from './brewery-hamburgers/brewery-hamburgers.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HamburgerListComponent,
+    ShoppingCartComponent,
+    BreweryAboutComponent,
+    BreweryHamburgersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+
   ],
   bootstrap: [AppComponent]
 })
