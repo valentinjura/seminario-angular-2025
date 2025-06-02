@@ -9,6 +9,7 @@
         <th>Tipo</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Cantidad</th>
         <th>Compra</th>
       </tr>
     </thead>
@@ -48,6 +49,10 @@
                       (maxReached)="maxReached($event)"
                       *ngIf="hamburger.stock > 0">
                     </app-input-integer> 
+                    
+        </td>
+        <td>
+          <button class="btn btn-secondary" (click)="addToCart(hamburger)">Comprar</button>
         </td>
       </tr>
     </tbody>

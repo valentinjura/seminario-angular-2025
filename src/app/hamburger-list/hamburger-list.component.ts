@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Hamburger} from './hamburger';
+import { HamburgerCartService } from '../hamburger-cart.service';
 @Component({
   selector: 'app-hamburger-list',
   standalone: false,
@@ -83,7 +84,8 @@ export class HamburgerListComponent {
     }
   ];
 
-  constructor(){}
+  constructor(private cart: HamburgerCartService){  //inyectamos el servicio
+  }
 
   
 
@@ -111,6 +113,16 @@ changeQuantity(hamburger: Hamburger): void {
 maxReached(mensaje:string){
   alert(mensaje);
 }
+addToCart(hamburger: Hamburger): void {
+    if (hamburger.quantity === 0) {
+        hamburger.quantity = 1;
+    }
+
+    this.cart.addToCart(hamburger);
+    hamburger.stock -= hamburger.quantity;
+    hamburger.quantity = 0;
+}
+
 
 
 }
