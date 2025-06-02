@@ -42,20 +42,12 @@
         </td>
 
         <td>
-          <div class="d-flex justify-content-center align-items-center">
-            <button class="btn btn-sm btn-primary me-2" (click)="upQuantity(hamburger)">+</button>
-
-            <input 
-              type="number"
-              [(ngModel)]="hamburger.quantity"
-              (input)="changeQuantity(hamburger)"
-              [max]="hamburger.stock"
-              [min]="0"
-              class="form-control form-control-sm text-center"
-              style="width: 70px;">
-
-            <button class="btn btn-sm btn-secondary ms-2" (click)="downQuantity(hamburger)">-</button>
-          </div>
+                    <app-input-integer
+                      [(quantity)]="hamburger.quantity"
+                      [max]="hamburger.stock"
+                      (maxReached)="maxReached($event)"
+                      *ngIf="hamburger.stock > 0">
+                    </app-input-integer> 
         </td>
       </tr>
     </tbody>

@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center align-items-center">
+  <button class="btn btn-sm btn-primary me-2" (click)="upQuantity()">+</button>
+
+  <input 
+    type="number"
+    [(ngModel)]="quantity"
+    (input)="changeQuantity()"
+    [max]="max"
+    [min]="0"
+    class="form-control form-control-sm text-center"
+    style="width: 70px;">
+
+  <button class="btn btn-sm btn-secondary ms-2" (click)="downQuantity()">-</button>
+</div>

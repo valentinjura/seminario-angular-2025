@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {hamburger} from './hamburger';
+import {Hamburger} from './hamburger';
 @Component({
   selector: 'app-hamburger-list',
   standalone: false,
@@ -7,7 +7,7 @@ import {hamburger} from './hamburger';
   styleUrl: './hamburger-list.component.scss'
 })
 export class HamburgerListComponent {
- hamburgers : hamburger[] = [
+ hamburgers : Hamburger[] = [
     {
       name: "Cheeseburger",
       type: "Carne",
@@ -87,17 +87,17 @@ export class HamburgerListComponent {
 
   
 
-downQuantity(hamburger: hamburger): void {
+downQuantity(hamburger: Hamburger): void {
   if (hamburger.quantity > 0) {
     hamburger.quantity--;
   }
 }
-upQuantity(hamburger: hamburger): void {
+upQuantity(hamburger: Hamburger): void {
   if (hamburger.quantity < hamburger.stock) {
     hamburger.quantity++;
   }
 }
-changeQuantity(hamburger: hamburger): void {
+changeQuantity(hamburger: Hamburger): void {
   // Si el valor es menor que 0 → lo dejamos en 0
   if (hamburger.quantity < 0) {
     hamburger.quantity = 0;
@@ -107,6 +107,9 @@ changeQuantity(hamburger: hamburger): void {
   if (hamburger.quantity > hamburger.stock) {
     hamburger.quantity = hamburger.stock;
   }
+}
+maxReached(mensaje:string){
+  alert(mensaje);
 }
 
 

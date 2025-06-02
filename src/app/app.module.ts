@@ -9,13 +9,15 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FormsModule } from '@angular/forms';
 import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BreweryHamburgersComponent } from './brewery-hamburgers/brewery-hamburgers.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HamburgerListComponent,
     ShoppingCartComponent,
     BreweryAboutComponent,
-    BreweryHamburgersComponent
+    BreweryHamburgersComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,
