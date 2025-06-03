@@ -7,3 +7,4 @@ export interface Hamburger {
   clearance: boolean;
   quantity: number;
 }
+

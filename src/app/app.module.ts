@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BreweryHamburgersComponent } from './brewery-hamburgers/brewery-hamburgers.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
 

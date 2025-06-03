@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Hamburger} from './hamburger';
 import { HamburgerCartService } from '../hamburger-cart.service';
+import { HamburgerDataService } from '../hamburger-data.service';
 @Component({
   selector: 'app-hamburger-list',
   standalone: false,
@@ -8,83 +9,13 @@ import { HamburgerCartService } from '../hamburger-cart.service';
   styleUrl: './hamburger-list.component.scss'
 })
 export class HamburgerListComponent {
- hamburgers : Hamburger[] = [
-    {
-      name: "Cheeseburger",
-      type: "Carne",
-      price: 2500,
-      stock: 15,
-      image: "assets/img/Cheeseburger.jpg",
-      clearance : false,
-      quantity : 0
 
-    },
-    {
-      name: "Chicken Crispy",
-      type: "Pollo",
-      price: 2700,
-      stock: 10,
-      image: "assets/chicken.jpg",
-      clearance : true,
-      quantity : 0
-    },
-    {
-      name: "Veggie Delight",
-      type: "Vegetariana",
-      price: 2400,
-      stock: 0,
-      image: "assets/veggie.jpg",
-      clearance : false,
-      quantity : 0
-    },
-    {
-      name: "Bacon BBQ Burger",
-      type: "Carne",
-      price: 2900,
-      stock: 12,
-      image: "assets/bacon-bbq.jpg",
-      clearance : true,
-      quantity : 0
-    },
-    {
-      name: "Spicy Chicken Burger",
-      type: "Pollo Picante",
-      price: 2750,
-      stock: 0,
-      image: "assets/spicy-chicken.jpg",
-      clearance : false,
-      quantity : 0
-    },
-    {
-      name: "Double Beef Burger",
-      type: "Doble Carne",
-      price: 3100,
-      stock: 9,
-      image: "assets/double-beef.jpg",
-      clearance : false,
-      quantity : 0
-    },
-    {
-      name: "Mushroom Swiss Burger",
-      type: "Carne",
-      price: 2800,
-      stock: 5,
-      image: "assets/mushroom-swiss.jpg",
-      clearance : false,
-      quantity : 0
-    },
-    {
-      name: "Falafel Burger",
-      type: "Vegetariana",
-      price: 2300,
-      stock: 6,
-      image: "assets/falafel.jpg",
-      clearance : false,
-      quantity : 0
-    }
-  ];
+  hamburgers:Hamburger [] = [];
 
-  constructor(private cart: HamburgerCartService){  //inyectamos el servicio
+  constructor(  //inyectamos el servicio
+    private cart: HamburgerCartService,
+    private hamburgersDataService: HamburgerDataService
+  ){  
   }
 
   
@@ -122,6 +53,11 @@ addToCart(hamburger: Hamburger): void {
     hamburger.stock -= hamburger.quantity;
     hamburger.quantity = 0;
 }
+  ngOnInit(): void{
+    this.hamburgersDataService.getAll()
+    .subscribe(hamburgers => this.hamburgers = hamburgers);
+
+  }
 
 
 
