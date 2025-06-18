@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:Angular-seminario": "node dist/angular-seminario/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
