@@ -1,7 +1,32 @@
-<h3>carrito de compras</h3>
-<ul>
-  <li *ngFor="let hamburger of cartList$ | async">
-    {{hamburger.name}} : {{hamburger.quantity}}
+<div class="card mt-3 shadow-sm border-0 rounded">
+  <div class="card-header bg-white d-flex justify-content-between align-items-center border-bottom py-3">
+    <h5 class="mb-0 fw-semibold text-dark d-flex">
+      Carrito
+    </h5>
+  </div>
 
-  </li>
-</ul>
+  <ul class="list-group list-group-flush" *ngIf="(cartList$ | async)?.length; else emptyCart">
+    <li *ngFor="let hamburger of cartList$ | async" 
+        class="list-group-item d-flex justify-content-between align-items-center border-0 px-3 py-2 carrito-item">
+      <div>
+        <strong class="text-dark">{{ hamburger.name }}</strong>
+        <div class="text-muted small carrito-quantity-price">
+          {{ hamburger.quantity }} × {{ hamburger.price | currency }}
+        </div>
+      </div>
+      <span class="badge bg-primary rounded-pill fs-6 fw-semibold carrito-total-price">
+        {{ (hamburger.totalPrice ?? (hamburger.price * hamburger.quantity)) | currency }}
+      </span>
+    </li>
+  </ul>
+
+  <button class="btn btn-outline-primary w-100 rounded-3 my-3 fw-semibold" type="button" [disabled]="!(cartList$ | async)?.length">
+    <i class="fas fa-credit-card me-2"></i> Pagar
+  </button>
+
+  <ng-template #emptyCart>
+    <div class="card-body text-center text-muted carrito-empty">
+      Tu carrito está vacío.
+    </div>
+  </ng-template>
+</div>

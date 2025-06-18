@@ -11,6 +11,11 @@ import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BreweryHamburgersComponent } from './brewery-hamburgers/brewery-hamburgers.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +23,16 @@ import { HttpClientModule } from '@angular/common/http';
     ShoppingCartComponent,
     BreweryAboutComponent,
     BreweryHamburgersComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
+   
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [
 

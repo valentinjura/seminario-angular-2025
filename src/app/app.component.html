@@ -1,42 +1,61 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center fw-bold fs-4 text-dark" [routerLink]="['/']" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo Hamburguesa" width="36" class="me-2" />
+      Hamburguesas Tandil
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav fs-6">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+          <a class="nav-link text-dark" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['/about']">About</a>
+          <a class="nav-link text-dark" [routerLink]="['/about']" routerLinkActive="active">Nosotros</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="container mt-4">
-   <router-outlet></router-outlet>
+
+<!-- CONTENIDO -->
+<div class="container mt-5">
+  <router-outlet></router-outlet>
 </div>
 
+<!-- FOOTER -->
+<footer class="bg-light text-center text-muted py-4 mt-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div class="container">
+    <p class="mb-2 d-flex justify-content-center align-items-center fs-6 fw-semibold text-dark">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo Hamburguesa" width="32" class="me-2" />
+      Hamburguesas Tandil
+    </p>
 
-<div>
-  <div>
-    <h1 class="text-center mt-5">Bienvenido a {{title}}</h1>
-    <p class="text-center">¡Explora nuestras hamburguesas!</p>
+    <p class="small mb-3">&copy; 2025 Todos los derechos reservados</p>
+
+    <div class="mb-3 fs-5">
+      <a href="https://facebook.com" target="_blank" class="text-muted me-4 hover-icon">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="text-muted me-4 hover-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="text-muted me-4 hover-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:contacto@hamburguesastandil.com" class="text-muted hover-icon">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+
+    <p class="small text-muted">
+      <i class="fas fa-map-marker-alt me-1"></i> Calle 9 de julio 260, Tandil
+    </p>
   </div>
-
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-1">
-      <i class="fas fa-hamburger"></i> {{title}} <i class="fas fa-hamburger"></i>
-    </p>
-    <p class="small mb-1">
-      &copy; 2025 Todos los derechos reservados
-    </p>
-    <p class="small">
-      <i class="fas fa-envelope"></i> contacto{{title | lowercase}}.com |
-      <i class="fas fa-map-marker-alt"></i> Calle 9 de julio 260, Ciudad Tandil
-    </p>
-  </footer>
-</div>
+</footer>

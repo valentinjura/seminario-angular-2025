@@ -1,14 +1,111 @@
-h1{
-    color: darkblue;
-    
+/* Tipografía */
+.menu-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: #333;
 }
-.clearance{
-    background-color: aquamarine;
+
+.card-hamburger {
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
-tr.clearance td {
-  background-color: #d4edda;
-  color: #155724;
+
+.card-hamburger:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
 }
-td{
-  vertical-align: middle;
+
+.out-of-stock {
+  background-color: #f9f9f9 !important;
+  color: #999 !important;
+  border-color: #ccc !important;
+}
+
+.hamburger-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.hamburger-name {
+  font-weight: 600;
+  color: #222;
+}
+
+.hamburger-type {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.clearance-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.original-price {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.discounted-price {
+  font-weight: 700;
+  color: #2a7a2a; /* greenish */
+}
+
+.clearance-badge {
+  background-color: #f0ad4e;
+  color: #4a4a4a;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.normal-price {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.stock-available {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.2em 0.6em;
+  border-radius: 9999px;
+}
+
+.stock-unavailable {
+  background-color: #f8d7da;
+  color: #842029;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.2em 0.6em;
+  border-radius: 9999px;
+}
+
+.btn-add-cart {
+  background-color: transparent;
+  border: 1.5px solid #dc3545; /* bootstrap danger */
+  color: #dc3545;
+  border-radius: 0.375rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-add-cart:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-out-stock {
+  background-color: transparent;
+  border: 1.5px solid #ccc;
+  color: #999;
+  border-radius: 0.375rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: default;
 }

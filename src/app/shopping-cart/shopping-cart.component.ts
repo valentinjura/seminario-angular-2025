@@ -14,5 +14,6 @@ export class ShoppingCartComponent {
   constructor(private cart: HamburgerCartService){
      this.cartList$  = cart.cartList.asObservable(); //inyectamos el servicio
     }
+    
   
 }

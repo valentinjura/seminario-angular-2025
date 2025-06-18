@@ -6,5 +6,6 @@ export interface Hamburger {
   image: string;
   clearance: boolean;
   quantity: number;
+  totalPrice?: number;
 }
 

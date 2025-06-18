@@ -32,14 +32,16 @@ export class InputIntegerComponent {
     }
   }
 
-  changeQuantity(): void {
-    if (this.quantity < 0) {
-      this.quantity = 0;
-    }
-
-    if (this.quantity > this.max) {
-      this.quantity = this.max;
-    }
+ changeQuantity(): void {
+  if (this.quantity < 0) {
+    this.quantity = 0;
   }
-  
+
+  if (this.quantity > this.max) {
+    this.quantity = this.max;
+  }
+
+  this.quantityChange.emit(this.quantity); // <- ESTA LÍNEA ES CLAVE
+}
+
 }

@@ -1,61 +1,69 @@
-<h1 class="text-center mb-4">Lista de Hamburguesas</h1>
+<h1 class="menu-title text-center my-5">
+  Nuestro Menú
+</h1>
 
-<div class="table-responsive">
-  <table class="table table-bordered table-striped text-center align-middle">
-    <thead class="table-light">
-      <tr>
-        <th>Imagen</th>
-        <th>Nombre</th>
-        <th>Tipo</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Cantidad</th>
-        <th>Compra</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let hamburger of hamburgers" [ngClass]="{'clearance': hamburger.clearance}">
-        <td><img [src]="hamburger.image + '?w=400&h=300&fit=crop'
-          " [alt]="hamburger.name" width="80" class="img-fluid" /></td>
-        <td>{{ hamburger.name }}</td>
-        <td>{{ hamburger.type }}</td>
+<div class="container">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let hamburger of hamburgers">
+      <div class="card h-100 border rounded shadow-sm card-hamburger" 
+           [ngClass]="{ 'out-of-stock': hamburger.stock === 0 }">
+        <img [src]="hamburger.image + '?w=600&h=400&fit=crop'" 
+             [alt]="hamburger.name"
+             class="card-img-top rounded-top hamburger-image">
 
-        <td>
-          <span *ngIf="hamburger.clearance; else normalPrice">
-            <div>
-              <span class="text-decoration-line-through text-muted">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title text-uppercase fw-semibold hamburger-name mb-1">
+              {{ hamburger.name }}
+            </h5>
+            <p class="hamburger-type mb-2 fst-italic">
+              Tipo: {{ hamburger.type }}
+            </p>
+
+            <div *ngIf="hamburger.clearance; else normalPrice" class="mb-2 clearance-price">
+              <small class="text-decoration-line-through text-muted original-price">
                 {{ hamburger.price | currency }}
-              </span>
-            </div>
-            <div>
-              <small class="fw-bold text-success">
-                {{ (hamburger.price * 0.85) | currency }}
               </small>
+              <span class="fw-semibold text-success discounted-price">
+                {{ (hamburger.price * 0.85) | currency }}
+              </span>
+              <span class="badge bg-warning clearance-badge">¡En Oferta!</span>
             </div>
-          </span>
-          <ng-template #normalPrice>
-            {{ hamburger.price | currency }}
+            <ng-template #normalPrice>
+              <p class="fw-semibold normal-price mb-3">
+                {{ hamburger.price | currency }}
+              </p>
+            </ng-template>
+
+            <p>
+              <span *ngIf="hamburger.stock > 0" class="badge stock-available">
+                {{ hamburger.stock }} disponibles
+              </span>
+              <span *ngIf="hamburger.stock === 0" class="badge stock-unavailable">
+                SIN STOCK
+              </span>
+            </p>
+          </div>
+
+          <div *ngIf="hamburger.stock > 0; else sinStock" class="mt-3">
+            <app-input-integer
+              [(quantity)]="hamburger.quantity"
+              [max]="hamburger.stock"
+              (maxReached)="maxReached($event)">
+            </app-input-integer>
+
+            <button class="btn btn-add-cart w-100 mt-3 fw-semibold" (click)="addToCart(hamburger)">
+              <i class="bi bi-cart-plus me-1"></i> Añadir al Carrito
+            </button>
+          </div>
+
+          <ng-template #sinStock>
+            <button class="btn btn-out-stock w-100 mt-3" disabled>
+              Agotado
+            </button>
           </ng-template>
-        </td>
-
-        <td>
-          <span *ngIf="hamburger.stock === 0" class="badge bg-danger">SIN STOCK</span>
-        
-        </td>
-
-        <td>
-                    <app-input-integer
-                      [(quantity)]="hamburger.quantity"
-                      [max]="hamburger.stock"
-                      (maxReached)="maxReached($event)"
-                      *ngIf="hamburger.stock > 0">
-                    </app-input-integer> 
-                    
-        </td>
-        <td>
-          <button class="btn btn-secondary" (click)="addToCart(hamburger)">Comprar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
