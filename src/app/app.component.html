@@ -1,23 +1,28 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center fw-bold fs-4 text-dark" [routerLink]="['/']" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo Hamburguesa" width="36" class="me-2" />
-      Hamburguesas Tandil
-    </a>
-
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">hamburguesas Tandil</a>
+    
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav fs-6">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-dark" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+          <a class="nav-link" routerLink="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" [routerLink]="['/about']" routerLinkActive="active">Nosotros</a>
+          <a class="nav-link" routerLink="/about">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary ms-3" routerLink="/sign-up">Registrarse</a>
         </li>
       </ul>
     </div>

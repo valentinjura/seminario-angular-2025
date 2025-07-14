@@ -12,6 +12,7 @@ import { BreweryHamburgersComponent } from './brewery-hamburgers/brewery-hamburg
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 
@@ -25,14 +26,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     BreweryHamburgersComponent,
     InputIntegerComponent,
    
-  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    SignUpComponent 
   ],
   providers: [
 

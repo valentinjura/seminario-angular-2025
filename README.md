@@ -15,7 +15,11 @@ Aplicación web desarrollada en **Angular** que simula una hamburguesería con i
 - Añadir productos al carrito de compras.
 - Gestionar stock en tiempo real.
 - Visualizar promociones.
+- Registro del usuario
+
 
 ---
+## StackBlitz (Proyecto Editable):
+[editar el proyecto en StackBlitz]()
 
 
